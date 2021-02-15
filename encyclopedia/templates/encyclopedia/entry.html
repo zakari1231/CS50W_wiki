@@ -1,0 +1,26 @@
+{% extends "encyclopedia/layout.html" %} 
+
+{% block title %} {{title}} {% endblock %}
+
+{% block body %} 
+    {% comment %}
+
+    <h1>All Pages</h1> {% endcomment %} 
+         
+    {% comment %} <a class="edit" href=/edit/{{title}}>Edit Page</a> {% endcomment %}
+        <a href="{% url 'wiki_title' title %}">{{title}}</a>
+        <hr>
+        {{context|safe}}
+    <hr>
+        <a href="{% url 'wiki_title_edit' title %}"> to edit this page click here</a>
+    <hr>
+        <h1> see other topics </h1>
+
+    {% for titl in entries %}
+        <li> <a href=/wiki/{{titl}}>{{ titl }}</a></li>
+    {% empty %}
+        <li> empty list </li>
+    {% endfor %} 
+    {% comment %}<form action="{% url 'encyclopedia:edit_page' page_title %}" method="POST"> {% endcomment %} 
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "encyclopedia/layout.html" %} 
+
+{% block title %} Encyclopedia {% endblock %}
+
+{% block body %} 
+
+    
+        <h1> Results </h1>
+        {% for searchss in searched%}
+            <li> <a href={% url 'wiki_title' searchss %}>{{ searchss }}</a></li>
+        {% empty %}
+                <li> empty list </li>
+            {% endfor %}
+    <hr>
+         <h1> see other topics </h1>
+
+    {% for titl in entries %}
+        <li> <a href=/wiki/{{titl}}>{{ titl }}</a></li>
+    {% empty %}
+        <li> empty list </li>
+    {% endfor %}  
+    
+
+{% endblock %}

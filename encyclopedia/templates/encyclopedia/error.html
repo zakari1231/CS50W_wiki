@@ -1,0 +1,29 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %} Error {% endblock %}
+
+{% block body %}
+
+        <style>
+        .p1 {
+            text-align:center;
+            font-family:Times New Roman;
+            font-weight: bold;
+            font-size:45px;
+        }
+        a {
+            text-align:center;
+            font-family:Times New Roman;
+            font-weight: bold;
+            font-size:20px;
+        }
+        </style>
+
+            <p class="p1"> Error </p>
+            <hr>
+            <a href=  "{% url 'index' %}">{{message}}</a> 
+            <hr>
+
+
+
+{% endblock %}

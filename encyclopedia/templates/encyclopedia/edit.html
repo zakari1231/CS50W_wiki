@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %} 
+
+{% block title %} edit ... {{title}} {% endblock %}
+
+{% block body %} 
+
+     <a href="{% url 'wiki_title' title %}">return to {{title}} without editing</a>
+        <hr>
+        {{context|safe}}
+    <hr> 
+        
+    <h2>edit {{title}}</h2>
+            <form method="post" action={% url 'wiki_title_edit' title %} >
+                {% csrf_token %}  
+                {{edit}}
+                <button type="submit">Save the changes</button>
+            </form>
+
+{% endblock %}
